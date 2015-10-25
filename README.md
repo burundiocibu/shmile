@@ -30,10 +30,13 @@ you decide to use one (I personally use a Canon CP770), it should be
 relatively simple to set up.
 
 1. Make sure your printer is set as the system default.
-2. When booting your server, be sure to supply a `PRINTER=true`
+2. When booting your server, be sure to supply a `PRINTER_ENABLED=true`
    environment variable. For example:
 
-    $ PRINTER=true coffee app.coffee
+    $ PRINTER_ENABLED=true coffee app.coffee
+    
+The environment variable 'PRINTER' can be set to the printer queue to use
+if you don't wan't to use the system defalut printer.
 
 ### Deploying/running
 
@@ -75,8 +78,10 @@ Go to project root. We assume that you've checked out this repo into `/path/to/s
 The server should begin running.
 
 #### Configuration variables
+The file .env contains variables that are added to the environment when app.coffee
+executes.
 
-* `PRINTER=true` causes shmile to queue up a print job to your default
+* `PRINTER_ENABLED=true` causes shmile to queue up a print job to your default
   printer as soon as a photo session is complete.
 * `STUB_CAMERA=true` allows you to not use the camera control interface.
   You should only need this feature when you are actually developing on
